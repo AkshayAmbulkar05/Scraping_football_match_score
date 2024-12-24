@@ -71,7 +71,7 @@ for match in matches:
 
 # Create a DataFrame and save it to CSV
 df = pd.DataFrame({'date': date, 'home_team': home_team, 'score': score, 'away_team': away_team})
-df.to_xlsx('football.xlsx', index=False)
+df.to_excel('football.xlsx', index=False)
 print(df)
 
 
