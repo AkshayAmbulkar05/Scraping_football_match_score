@@ -9,7 +9,7 @@ import pandas as pd
 
 # URL and path to ChromeDriver
 web = 'https://www.adamchoi.co.uk/overs/detailed'
-path = 'D:/this_is_output/Comparison/chromedriver-win64/chromedriver-win64/chromedriver.exe'
+path = 'D:/your_path/chromedriver.exe'
 
 # Set up ChromeDriver service
 service = Service(path)
