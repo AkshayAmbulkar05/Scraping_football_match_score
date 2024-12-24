@@ -1,3 +1,4 @@
+#All Football match Scroes scapper
 import time
 from time import sleep
 from selenium import webdriver
@@ -22,10 +23,20 @@ clicked = driver.find_element(By.XPATH, '//label[@analytics-event="All matches"]
 clicked.click()
 time.sleep(10)  # Wait for the table to load (better to use WebDriverWait)
 
-dropdown= Select(driver.find_element(By.ID,'country'))
-user_input =input("which Country you want me to show the score:")
-dropdown.select_by_visible_text(user_input)
-sleep(10)
+Country= Select(driver.find_element(By.ID,'country'))
+select_country =input("which Country you want me to show the score:")
+Country.select_by_visible_text(select_country)
+sleep(5)
+League = Select(driver.find_element(By.ID,'league'))
+select_league = input("please select League:")
+League.select_by_visible_text(select_league)
+sleep(5)
+Season = Select(driver.find_element(By.ID,'season'))
+select_season = input('Please select season:')
+Season.select_by_visible_text(select_season)
+
+sleep(5)
+
 # Extract data from the table
 matches = driver.find_elements(By.TAG_NAME, 'tr')
 
@@ -56,9 +67,11 @@ for match in matches:
         print(f"Error processing row: {e}")
 
 # Close the driver
-driver.quit()
+# driver.quit()
 
 # Create a DataFrame and save it to CSV
 df = pd.DataFrame({'date': date, 'home_team': home_team, 'score': score, 'away_team': away_team})
 df.to_xlsx('football.xlsx', index=False)
 print(df)
+
+
